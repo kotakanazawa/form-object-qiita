@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <div class="btn">
+    <%= link_to '登録する', new_format_path %>
+  </div>
+  <div class="formats">
+    <% @formats.each do |format| %>
+      <div class="format">
+        <div class="format-name">ユーザー情報：<%= format.name %>/<%= format.name_kana %>/<%= format.nickname %></div>
+        <div class="format-name">住所情報：<%= format.address.postal_code%>/<%= format.address.prefecture.name%>/<%= format.address.city%>/<%= format.address.house_number%>/<%= format.address.building_name%></div>
+      </div>
+    <% end %>
+  </div>
+</div>

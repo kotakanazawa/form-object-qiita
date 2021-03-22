@@ -1,0 +1,41 @@
+<%= form_with(model: @format, url: formats_path, local: true) do |form| %>
+  <h1>ユーザー名を入力</h1>
+  <div class="field">
+    <%= form.label :name, "名前（全角）" %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :name_kana, "フリカナ（全角カタカナ）" %>
+    <%= form.text_field :name_kana %>
+  </div>
+  <div class="field">
+    <%= form.label :nickname, "ニックネーム（半角英数）" %>
+    <%= form.text_field :nickname %>
+  </div>
+  <%# ここから　追加 %>
+  <h1>住所を入力</h1>
+  <div class="field">
+    <%= form.label :postal_code, "郵便番号（ハイフンを含む）" %>
+    <%= form.text_field :postal_code %>
+  </div>
+  <div class="field">
+    <%= form.label :prefecture_id, "都道府県" %>
+    <%= form.collection_select :prefecture_id, Prefecture.all, :id, :name, {} %>
+  </div>
+  <div class="field">
+    <%= form.label :city, "市町村（任意）" %>
+    <%= form.text_field :city %>
+  </div>
+  <div class="field">
+    <%= form.label :house_number, "番地（任意）" %>
+    <%= form.text_field :house_number %>
+  </div>
+  <div class="field">
+    <%= form.label :building_name, "建物名（任意）" %>
+    <%= form.text_field :building_name %>
+  </div>
+  <%# ここまで　追加 %>
+  <div class="actions">
+    <%= form.submit "登録する" %>
+  </div>
+<% end %>
